@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./masterTemplate.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="left">
+            </ui:define>
+
+            <ui:define name="content">
+                <h3>Currency Conversion</h3>
+                <h:form>
+                    <h:outputLabel value="Enter amount: " />
+                    <h:inputText value="#{currencyConversionBean.amout}" />
+                    <h:commandButton value="Convert" action="#{currencyConversionBean.callConvert()}" />
+                    <br/><br/>
+                    <h:selectOneMenu value="#{currencyConversionBean.fromOption}">
+                        <f:selectItem itemValue = "MYR" itemLabel = "Malaysian Ringgit" />
+                        <f:selectItem itemValue = "GBP" itemLabel = "British Pound" />
+                        <f:selectItem itemValue = "USD" itemLabel = "U.S. Dollar" />
+                        <f:selectItem itemValue = "SGD" itemLabel = "Singapore Dollar" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value=" convert to " />
+                    <h:selectOneMenu value="#{currencyConversionBean.toOption}">
+                        <f:selectItem itemValue = "MYR" itemLabel = "Malaysian Ringgit" />
+                        <f:selectItem itemValue = "GBP" itemLabel = "British Pound" />
+                        <f:selectItem itemValue = "USD" itemLabel = "U.S. Dollar" />
+                        <f:selectItem itemValue = "SGD" itemLabel = "Singapore Dollar" />
+                    </h:selectOneMenu>
+                    <br/><br/>
+                    <h:outputLabel value="#{currencyConversionBean.output}" />
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

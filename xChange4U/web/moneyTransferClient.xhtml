@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./masterTemplate.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="left">
+            </ui:define>
+
+            <ui:define name="content">
+                <h3>Money Transfer</h3>
+                <h:form>
+                    <h:outputLabel value="From: " />
+                    <h:selectOneMenu value="#{moneyTransferBean.origin}">
+                        <f:selectItem itemValue = "MYR" itemLabel = "Malaysia" />
+                        <f:selectItem itemValue = "GBP" itemLabel = "United Kingdom" />
+                        <f:selectItem itemValue = "USD" itemLabel = "United States" />
+                        <f:selectItem itemValue = "SGD" itemLabel = "Singapore" />
+                        <f:ajax listener="#{moneyTransferBean.receiveChange}" render="sendAmount origin exchangeRate" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value=" send money to: " />
+                    <h:selectOneMenu value="#{moneyTransferBean.destination}">
+                        <f:selectItem itemValue = "MYR" itemLabel = "Malaysia" />
+                        <f:selectItem itemValue = "GBP" itemLabel = "United Kingdom" />
+                        <f:selectItem itemValue = "USD" itemLabel = "United States" />
+                        <f:selectItem itemValue = "SGD" itemLabel = "Singapore" />
+                        <f:ajax listener="#{moneyTransferBean.sendChange}" render="receiveAmount destination exchangeRate" />
+                    </h:selectOneMenu>
+                    <br/><br/>
+                    <h:outputLabel id="exchangeRate" value="1 #{moneyTransferBean.origin} = #{moneyTransferBean.exchangeRate} #{moneyTransferBean.destination}" />
+                    <br/><br/>
+                    <h:outputLabel value="Send Amount: " />
+                    <h:inputText id="sendAmount" value="#{moneyTransferBean.sendAmount}">
+                        <f:ajax  event="keyup" listener="#{moneyTransferBean.sendChange}" render="receiveAmount" />
+                    </h:inputText>
+                    <h:outputLabel id="origin" value=" #{moneyTransferBean.origin} " />
+                    <br/><br/>
+                    <h:outputLabel value="Receive Amount: " />
+                    <h:inputText id="receiveAmount" value="#{moneyTransferBean.receiveAmount}">
+                        <f:ajax  event="keyup" listener="#{moneyTransferBean.receiveChange}" render="sendAmount" />
+                    </h:inputText>
+                    <h:outputLabel id="destination" value=" #{moneyTransferBean.destination} " />
+                    <br/><br/>
+                    <h:outputLabel value="Sender Name: " />
+                    <h:inputText value="#{moneyTransferBean.sender}">
+                        <f:ajax event="keyup" listener="#{moneyTransferBean.removeValidation}" render="sender" />
+                    </h:inputText>
+                    <h:outputLabel id="sender" value=" #{moneyTransferBean.validationSender} " />
+                    <br/><br/>
+                    <h:outputLabel value=" Receiver Name: " />
+                    <h:inputText value="#{moneyTransferBean.receiver}">
+                        <f:ajax event="keyup" listener="#{moneyTransferBean.removeValidation}" render="receiver" />
+                    </h:inputText>
+                    <h:outputLabel id="receiver" value=" #{moneyTransferBean.validationReceiver} " />
+                    <br/><br/>
+                    <h:commandButton value="Transfer Now" action="#{moneyTransferBean.callTransfer}" />
+                    <h4><h:outputLabel value=" #{moneyTransferBean.output} " /></h4>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

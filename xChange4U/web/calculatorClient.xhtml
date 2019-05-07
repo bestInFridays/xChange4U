@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./masterTemplate.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="left">
+            </ui:define>
+
+            <ui:define name="content">
+                <h3>Calculator</h3>
+                <h:form>
+                    <h:outputLabel value="Enter calculation: " />
+                    <h:inputText value="#{calculatorBean.calculation}" />
+                    <h:outputLabel value=" = #{calculatorBean.output}" />
+                    <br/><br/>
+                    <h:selectOneMenu value="#{calculatorBean.calculateMethod}">
+                        <f:selectItem itemValue = "BOD" itemLabel = "BODMAS Method" />
+                        <f:selectItem itemValue = "LTR" itemLabel = "Left to Right Method" />
+                    </h:selectOneMenu>
+                    <h:commandButton value="Calculate" action="#{calculatorBean.callCalculate()}" />
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

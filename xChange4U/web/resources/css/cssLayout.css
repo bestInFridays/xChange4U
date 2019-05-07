@@ -1,0 +1,111 @@
+
+*{
+    font-family: Century Gothic;
+    font-size: 15px;
+}
+
+.navIcon {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+}
+
+.mySidenav {
+    position: absolute;
+    left: -190px;
+    transition: 0.5s;
+    padding: 10px;
+    width: 210px;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 0 9px 9px 0;
+}
+
+.mySidenav:hover {
+    left: 0;
+}
+
+#slogan {
+    position: absolute;
+    bottom:  15px;
+    right: 15px;
+}
+
+#companyLogo {
+    margin: 10px 20px 1px 20px;
+}
+
+#logo {
+    height: 100px;
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    opacity: 0.15;
+}
+
+
+#top {
+    position: relative;
+    background-color: #ffffff;
+    color: black;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+}
+
+#bottom {
+    position: relative;
+    background-color: white;
+    padding: 20px 50px 20px 50px;
+    margin: 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px 0 rgba(0,0,0,0.2),0 -6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 35px 100px 35px 100px;
+    min-height: 390px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+

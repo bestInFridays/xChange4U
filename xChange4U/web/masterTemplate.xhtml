@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <h:link outcome="indexClient" >
+                <h:graphicImage id="companyLogo" value="resources/css/sources/xchange4u.png" height="100px"/>
+            </h:link>
+            <ui:insert name="top">Top</ui:insert>
+            <img id="logo" src="resources/css/sources/earth.png"/>
+            <div id="slogan">THE WORLD'S CONVENIENT SITE OF MONEY EXCHANGE AND TRANSFER AGENCY</div>
+        </div>
+        <div>
+            <div class="sidenav">
+                <h:link class="mySidenav" value="Currency Conversion" outcome="currencyConversionClient" style="top: 200px;">
+                    <h:graphicImage class="navIcon" value="resources/css/sources/money-exchange.png" height="25px" />
+                </h:link>
+                <h:link class="mySidenav" value="Money Transfer" outcome="moneyTransferClient" style="top: 270px;">
+                    <h:graphicImage class="navIcon" value="resources/css/sources/coin_white.png" height="25px" />
+                </h:link>
+                <h:link class="mySidenav" value="Calculator" outcome="calculatorClient" style="top: 340px;">
+                    <h:graphicImage class="navIcon" value="resources/css/sources/calculator.png" height="25px" />
+                </h:link>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
+            Copyright disclaimer: I do not own any material of the website. All rights belong to it's rightful owner/owner's. No copyright infringement intended.
+        </div>
+
+    </h:body>
+
+</html>
